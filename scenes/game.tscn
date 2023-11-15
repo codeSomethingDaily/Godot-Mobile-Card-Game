@@ -1,0 +1,222 @@
+[gd_scene load_steps=16 format=3 uid="uid://do6awomyqvbac"]
+
+[ext_resource type="Script" path="res://scenes/Hand.gd" id="1_ju4a1"]
+[ext_resource type="Script" path="res://scenes/Node2dGridController.gd" id="2_iggie"]
+[ext_resource type="PackedScene" uid="uid://b78fbwy8qdofi" path="res://scenes/arena_card_holder.tscn" id="3_70l0d"]
+[ext_resource type="Texture2D" uid="uid://cefqk4ou0t1ca" path="res://DownloadedAssets/Itch/Card RPG UI&Charactors/magician_1.png" id="3_nb0sw"]
+[ext_resource type="Texture2D" uid="uid://bi61j5cwfjdxc" path="res://DownloadedAssets/Itch/Enemy_Galore_I/Rat/Rat_Idle.png" id="4_rrf40"]
+[ext_resource type="Script" path="res://scenes/RatIdle.gd" id="5_3f7xu"]
+[ext_resource type="Texture2D" uid="uid://dukb28dgtjxmt" path="res://DownloadedAssets/Itch/Enemy_Galore_I/Canines/Canine_Black_Idle.png" id="5_7f4ph"]
+[ext_resource type="PackedScene" uid="uid://bb5adodogfcrx" path="res://components/Health/health.tscn" id="7_jkjit"]
+[ext_resource type="Texture2D" uid="uid://c71dle7gw3jsw" path="res://DownloadedAssets/Itch/Enemy_Galore_I/Slime/Slime_Spiked_Idle.png" id="7_xyof1"]
+[ext_resource type="Texture2D" uid="uid://dwbmu4o581rhr" path="res://DownloadedAssets/Itch/Card RPG UI&Charactors/magician_2.png" id="9_uofx6"]
+[ext_resource type="Texture2D" uid="uid://vkppu2o3g6wb" path="res://DownloadedAssets/Itch/Card RPG UI&Charactors/swordman_1.png" id="10_2oho4"]
+[ext_resource type="Texture2D" uid="uid://ci3cwubrwmw6m" path="res://DownloadedAssets/Itch/Card RPG UI&Charactors/swordman_2.png" id="11_31lck"]
+
+[sub_resource type="Curve" id="Curve_4bsh2"]
+min_value = -1.0
+_data = [Vector2(0, -1), 0.0, 2.0, 0, 1, Vector2(1, 1), 2.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_pt7vb"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_lpdpd"]
+min_value = -1.0
+_data = [Vector2(0, -1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Node2D" type="Node2D"]
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Hand" type="Node2D" parent="."]
+position = Vector2(640, 680)
+script = ExtResource("1_ju4a1")
+spread_curve = SubResource("Curve_4bsh2")
+height_curve = SubResource("Curve_pt7vb")
+angle_curve = SubResource("Curve_lpdpd")
+spread_scale = 600.0
+height_scale = 40.0
+angle_scale = 10.0
+
+[node name="Arena" type="Node2D" parent="."]
+
+[node name="Node2dGridController" type="Node2D" parent="Arena" node_paths=PackedStringArray("card_holders_container")]
+position = Vector2(380, 45)
+script = ExtResource("2_iggie")
+col_count = 7
+row_count = 5
+x_displacement = 90.0
+y_displacement = 90.0
+card_holders_container = NodePath("CardHoldersContainer")
+
+[node name="CardHoldersContainer" type="Node2D" parent="Arena/Node2dGridController"]
+
+[node name="Holder_1" parent="Arena/Node2dGridController/CardHoldersContainer" instance=ExtResource("3_70l0d")]
+
+[node name="Holder_2" parent="Arena/Node2dGridController/CardHoldersContainer" instance=ExtResource("3_70l0d")]
+position = Vector2(90, 0)
+
+[node name="Holder_3" parent="Arena/Node2dGridController/CardHoldersContainer" instance=ExtResource("3_70l0d")]
+position = Vector2(180, 0)
+
+[node name="Holder_4" parent="Arena/Node2dGridController/CardHoldersContainer" instance=ExtResource("3_70l0d")]
+position = Vector2(270, 0)
+
+[node name="Holder_5" parent="Arena/Node2dGridController/CardHoldersContainer" instance=ExtResource("3_70l0d")]
+position = Vector2(360, 0)
+
+[node name="Holder_6" parent="Arena/Node2dGridController/CardHoldersContainer" instance=ExtResource("3_70l0d")]
+position = Vector2(450, 0)
+
+[node name="Holder_7" parent="Arena/Node2dGridController/CardHoldersContainer" instance=ExtResource("3_70l0d")]
+position = Vector2(540, 0)
+
+[node name="Holder_8" parent="Arena/Node2dGridController/CardHoldersContainer" instance=ExtResource("3_70l0d")]
+position = Vector2(0, 90)
+
+[node name="Holder_9" parent="Arena/Node2dGridController/CardHoldersContainer" instance=ExtResource("3_70l0d")]
+position = Vector2(90, 90)
+
+[node name="Holder_10" parent="Arena/Node2dGridController/CardHoldersContainer" instance=ExtResource("3_70l0d")]
+position = Vector2(180, 90)
+
+[node name="Holder_11" parent="Arena/Node2dGridController/CardHoldersContainer" instance=ExtResource("3_70l0d")]
+position = Vector2(270, 90)
+
+[node name="Holder_12" parent="Arena/Node2dGridController/CardHoldersContainer" instance=ExtResource("3_70l0d")]
+position = Vector2(360, 90)
+
+[node name="Holder_13" parent="Arena/Node2dGridController/CardHoldersContainer" instance=ExtResource("3_70l0d")]
+position = Vector2(450, 90)
+
+[node name="Holder_14" parent="Arena/Node2dGridController/CardHoldersContainer" instance=ExtResource("3_70l0d")]
+position = Vector2(540, 90)
+
+[node name="Holder_15" parent="Arena/Node2dGridController/CardHoldersContainer" instance=ExtResource("3_70l0d")]
+position = Vector2(0, 180)
+
+[node name="Holder_16" parent="Arena/Node2dGridController/CardHoldersContainer" instance=ExtResource("3_70l0d")]
+position = Vector2(90, 180)
+
+[node name="Holder_17" parent="Arena/Node2dGridController/CardHoldersContainer" instance=ExtResource("3_70l0d")]
+position = Vector2(180, 180)
+
+[node name="Holder_18" parent="Arena/Node2dGridController/CardHoldersContainer" instance=ExtResource("3_70l0d")]
+position = Vector2(270, 180)
+
+[node name="Holder_19" parent="Arena/Node2dGridController/CardHoldersContainer" instance=ExtResource("3_70l0d")]
+position = Vector2(360, 180)
+
+[node name="Holder_20" parent="Arena/Node2dGridController/CardHoldersContainer" instance=ExtResource("3_70l0d")]
+position = Vector2(450, 180)
+
+[node name="Holder_21" parent="Arena/Node2dGridController/CardHoldersContainer" instance=ExtResource("3_70l0d")]
+position = Vector2(540, 180)
+
+[node name="Holder_22" parent="Arena/Node2dGridController/CardHoldersContainer" instance=ExtResource("3_70l0d")]
+position = Vector2(0, 270)
+
+[node name="Holder_23" parent="Arena/Node2dGridController/CardHoldersContainer" instance=ExtResource("3_70l0d")]
+position = Vector2(90, 270)
+
+[node name="Holder_24" parent="Arena/Node2dGridController/CardHoldersContainer" instance=ExtResource("3_70l0d")]
+position = Vector2(180, 270)
+
+[node name="Holder_25" parent="Arena/Node2dGridController/CardHoldersContainer" instance=ExtResource("3_70l0d")]
+position = Vector2(270, 270)
+
+[node name="Holder_26" parent="Arena/Node2dGridController/CardHoldersContainer" instance=ExtResource("3_70l0d")]
+position = Vector2(360, 270)
+
+[node name="Holder_27" parent="Arena/Node2dGridController/CardHoldersContainer" instance=ExtResource("3_70l0d")]
+position = Vector2(450, 270)
+
+[node name="Holder_28" parent="Arena/Node2dGridController/CardHoldersContainer" instance=ExtResource("3_70l0d")]
+position = Vector2(540, 270)
+
+[node name="Holder_29" parent="Arena/Node2dGridController/CardHoldersContainer" instance=ExtResource("3_70l0d")]
+position = Vector2(0, 360)
+
+[node name="Holder_30" parent="Arena/Node2dGridController/CardHoldersContainer" instance=ExtResource("3_70l0d")]
+position = Vector2(90, 360)
+
+[node name="Holder_31" parent="Arena/Node2dGridController/CardHoldersContainer" instance=ExtResource("3_70l0d")]
+position = Vector2(180, 360)
+
+[node name="Holder_32" parent="Arena/Node2dGridController/CardHoldersContainer" instance=ExtResource("3_70l0d")]
+position = Vector2(270, 360)
+
+[node name="Holder_33" parent="Arena/Node2dGridController/CardHoldersContainer" instance=ExtResource("3_70l0d")]
+position = Vector2(360, 360)
+
+[node name="Holder_34" parent="Arena/Node2dGridController/CardHoldersContainer" instance=ExtResource("3_70l0d")]
+position = Vector2(450, 360)
+
+[node name="Holder_35" parent="Arena/Node2dGridController/CardHoldersContainer" instance=ExtResource("3_70l0d")]
+position = Vector2(540, 360)
+
+[node name="Magician1" type="Sprite2D" parent="."]
+position = Vector2(652, 145)
+texture = ExtResource("3_nb0sw")
+
+[node name="CaninesIdle" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(928, 231)
+scale = Vector2(2, 2)
+texture = ExtResource("5_7f4ph")
+hframes = 4
+script = ExtResource("5_3f7xu")
+
+[node name="Health" parent="CaninesIdle" instance=ExtResource("7_jkjit")]
+texture_filter = 1
+position = Vector2(-12.5, 15.5)
+
+[node name="Timer" type="Timer" parent="CaninesIdle"]
+wait_time = 0.2
+autostart = true
+
+[node name="SlimeIdle" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(921, 137)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("7_xyof1")
+flip_h = true
+hframes = 4
+script = ExtResource("5_3f7xu")
+
+[node name="Timer" type="Timer" parent="SlimeIdle"]
+wait_time = 0.2
+autostart = true
+
+[node name="RatIdle" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(927, 312)
+scale = Vector2(3, 3)
+texture = ExtResource("4_rrf40")
+flip_h = true
+hframes = 4
+script = ExtResource("5_3f7xu")
+
+[node name="Timer" type="Timer" parent="RatIdle"]
+wait_time = 0.2
+autostart = true
+
+[node name="Magician2" type="Sprite2D" parent="."]
+position = Vector2(565, 323)
+texture = ExtResource("9_uofx6")
+
+[node name="Swordman1" type="Sprite2D" parent="."]
+position = Vector2(742, 235)
+texture = ExtResource("10_2oho4")
+
+[node name="Swordman2" type="Sprite2D" parent="."]
+position = Vector2(830, 327)
+texture = ExtResource("11_31lck")
+
+[connection signal="timeout" from="CaninesIdle/Timer" to="CaninesIdle" method="_on_timer_timeout"]
+[connection signal="timeout" from="SlimeIdle/Timer" to="SlimeIdle" method="_on_timer_timeout"]
+[connection signal="timeout" from="RatIdle/Timer" to="RatIdle" method="_on_timer_timeout"]

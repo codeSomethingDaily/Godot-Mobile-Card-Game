@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://dfuqyskuw1ka8"]
+
+[ext_resource type="Script" path="res://scenes/Card.gd" id="1_4pxch"]
+[ext_resource type="Texture2D" uid="uid://bxvx0vbk7ac31" path="res://DownloadedAssets/Itch/Tornioduva's basic card game asset pack/fantasy card/card fantasy iron.png" id="2_uryv1"]
+[ext_resource type="Texture2D" uid="uid://dfk8ean2iwkoj" path="res://Inkscape/dashed_line_texture.png" id="3_w4abn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vqhsg"]
+font_size = 40
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qup17"]
+size = Vector2(185, 260)
+
+[node name="Card" type="Area2D"]
+script = ExtResource("1_4pxch")
+metadata/_edit_lock_ = true
+
+[node name="CardFantasyIron" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_uryv1")
+metadata/_edit_lock_ = true
+
+[node name="CardName" type="Label" parent="CardFantasyIron"]
+offset_left = -247.0
+offset_top = 422.0
+offset_right = 245.0
+offset_bottom = 480.0
+text = "Basic Turret
+"
+label_settings = SubResource("LabelSettings_vqhsg")
+horizontal_alignment = 1
+autowrap_mode = 3
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_qup17")
+metadata/_edit_lock_ = true
+
+[node name="Line2D" type="Line2D" parent="."]
+texture_repeat = 2
+texture = ExtResource("3_w4abn")
+texture_mode = 1
+
+[node name="LineStartingPoint" type="Node2D" parent="."]
+position = Vector2(0, -131)
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

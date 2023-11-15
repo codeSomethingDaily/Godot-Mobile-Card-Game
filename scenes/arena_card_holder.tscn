@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://b78fbwy8qdofi"]
+
+[ext_resource type="Script" path="res://scenes/arena_card_holder.gd" id="1_shxks"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l3efv"]
+size = Vector2(270, 270)
+
+[node name="Node2D" type="Area2D"]
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_shxks")
+
+[node name="ArenaCardHolder" type="Polygon2D" parent="."]
+invert_enabled = true
+invert_border = 15.0
+polygon = PackedVector2Array(-120, -120, 120, -120, 120, 120, -120, 120)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_l3efv")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bb5adodogfcrx"]
+
+[ext_resource type="Script" path="res://scenes/Health.gd" id="1_26na6"]
+[ext_resource type="Texture2D" uid="uid://d2mexfmg7nmll" path="res://components/Health/heart_full_out.svg" id="2_a8u8t"]
+[ext_resource type="Texture2D" uid="uid://7d1ax7fph628" path="res://components/Health/heart_empty_out.svg" id="3_vb7i1"]
+
+[node name="Health" type="Node2D"]
+script = ExtResource("1_26na6")
+
+[node name="HeartFull" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+scale = Vector2(0.015, 0.015)
+texture = ExtResource("2_a8u8t")
+
+[node name="HeartEmpty" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+scale = Vector2(0.0195845, 0.0195845)
+texture = ExtResource("3_vb7i1")
